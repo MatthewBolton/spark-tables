@@ -270,7 +270,7 @@ const styles = `
   .divider { height: 1px; background: linear-gradient(90deg, transparent, #4a3f30, transparent); margin: 12px 20px; }
 
   .category-tabs { display: flex; gap: 4px; padding: 0 12px; position: relative; z-index: 1; overflow-x: auto; }
-  .cat-tab { flex: 1; min-width: 0; padding: 6px 1px; border: 1px solid transparent; border-radius: 5px; background: #1a1510; color: #b5a58c; font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; text-align: center; transition: all 0.2s; display: flex; flex-direction: column; align-items: center; gap: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cat-tab { flex: 1; min-width: 0; padding: 6px 1px; border: 1px solid transparent; border-radius: 5px; background: #1a1510; color: #b5a58c; font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; text-align: center; transition: all 0.2s; display: flex; flex-direction: column; align-items: center; gap: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .cat-tab .tab-icon { font-size: 14px; }
   .cat-tab:hover { color: #d4c5a9; border-color: #4a3f30; background: #1f1a13; }
   .cat-tab.active { color: var(--cat-accent); border-color: var(--cat-color); background: #1f1a13; box-shadow: 0 0 10px rgba(0,0,0,0.5), inset 0 0 6px rgba(0,0,0,0.3); }
@@ -352,6 +352,7 @@ const styles = `
     .table-name { font-size: 8px; }
     .header-sub { font-size: 24px; }
     .content-area { padding: 14px 20px; }
+    .cat-tab { font-size: 9px; }
   }
 
   @media (min-width: 1024px) {
@@ -369,6 +370,7 @@ const styles = `
     .table-card { padding: 6px; min-height: 62px; }
     .result-word, .result-word-2 { font-size: 12px; }
     .result-oracle { font-size: 11px; }
+    .cat-tab { font-size: 7px; letter-spacing: 0.02em; }
   }
 `;
 
