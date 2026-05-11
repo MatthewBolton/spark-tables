@@ -19,13 +19,6 @@
 
   var EMPTY_POOL_DR = { d4: 0, d6: 0, d8: 0, d10: 0, d12: 0, d20: 0 };
 
-  var QUICK_ROLLS_DR = [
-    { label: "2d12 Spark", pool: { d4:0, d6:0, d8:0, d10:0, d12:2, d20:0 } },
-    { label: "1d20 Save",  pool: { d4:0, d6:0, d8:0, d10:0, d12:0, d20:1 } },
-    { label: "d12+d6",     pool: { d4:0, d6:1, d8:0, d10:0, d12:1, d20:0 } },
-    { label: "2d6 Squire", pool: { d4:0, d6:2, d8:0, d10:0, d12:0, d20:0 } },
-  ];
-
   var DICE_PATHS_DR = {
     d4:  "M12 2 L22 20 L2 20 Z",
     d6:  "M4 4 H20 V20 H4 Z",
@@ -147,12 +140,6 @@
     }, []);
 
     useEffect(function () {
-      if (dice3DReady) {
-        setUse3D(true);
-      }
-    }, [dice3DReady]);
-
-    useEffect(function () {
       var diceRoot = document.getElementById("dice-root");
       if (!diceRoot) return;
 
@@ -192,11 +179,6 @@
     }
     function removeDie(die) {
       setPool(function (p) { var n = Object.assign({}, p); n[die] = Math.max(0, p[die] - 1); return n; });
-    }
-    function applyPreset(preset) {
-      setPool(Object.assign({}, preset.pool));
-      setResults([]);
-      setAllocatedUids(new Set());
     }
     function clearAll() {
       setPool(Object.assign({}, EMPTY_POOL_DR));
@@ -527,26 +509,6 @@
                     }, use3D ? "3D ready" : "3D available")
                   )
                 : null,
-
-              // Quick rolls
-              /*#__PURE__*/React.createElement("div", {
-                style: { display: "flex", flexWrap: "wrap", gap: "0.4rem", marginBottom: "1.25rem", alignItems: "center" }
-              },
-                /*#__PURE__*/React.createElement("span", {
-                  style: { fontSize: "0.7rem", color: "#8A7A60", marginRight: "0.2rem", letterSpacing: "0.1em" }
-                }, "QUICK:"),
-                QUICK_ROLLS_DR.map(function (preset) {
-                  return /*#__PURE__*/React.createElement("button", {
-                    key: preset.label,
-                    onClick: function () { applyPreset(preset); },
-                    style: {
-                      padding: "0.25rem 0.65rem", background: "rgba(122,92,46,0.15)",
-                      border: "1px solid rgba(200,169,110,0.3)", color: "#E2C08D",
-                      borderRadius: "3px", cursor: "pointer", fontSize: "0.72rem", fontFamily: "inherit",
-                    }
-                  }, preset.label);
-                })
-              ),
 
               // Pool builder
               /*#__PURE__*/React.createElement("div", {
